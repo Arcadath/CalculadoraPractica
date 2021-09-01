@@ -116,7 +116,18 @@ public class MainActivity extends AppCompatActivity {
         operador="/";
         onClickOperacionCapturaNumero1(miView);
     }
-
+    public void logaritmo(View miView) {
+        operador="log10";
+        onClickOperacionCapturaNumero1(miView);
+    }
+    public void Raiz(View miView){
+        operador="√";
+        onClickOperacionCapturaNumero1(miView);
+    }
+    public void Potencia(View miView) {
+        operador="^";
+        onClickOperacionCapturaNumero1(miView);
+    }
     public void Resultado(View miView)
     {
         TextView tv = (Text) findViewById(R.id.textViewNumero) ;
@@ -132,6 +143,12 @@ public class MainActivity extends AppCompatActivity {
                 resultado = numero1 * numero2;
             } else if (operador.equals("/")) {
                 resultado = numero1 / numero2;
+            }else if(operador.equals("log10")) {
+                resultado = Math.log10(numero1);
+            }else if(operador.equals("√")) {
+                resultado = Math.sqrt(numero1);
+            }else if(operador.equals("^")) {
+                resultado = Math.pow(numero1);
             }
             tv.setText(resultado.toString());
         }catch(NumberFormatException nfe){
@@ -144,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         numero1=0.0;
         numero2=0.0;
         TextView tv = (TextView) findViewById(R.id.textViewNumero) ;
-        tv.setText("");
+        tv.setText("0");
     }
 
     @Override
